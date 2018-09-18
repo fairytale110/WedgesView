@@ -2,9 +2,8 @@
  * @class tech.nicesky.wedgesview.WedgesView
  * @date on 2018/9/18-1:12
  * @author fairytale110
- * @email  fairytale110@foxmail.com
+ * @email fairytale110@foxmail.com
  * @description:
- *
  */
 package tech.nicesky.libwedgesview;
 
@@ -25,7 +24,7 @@ import android.view.View;
  * @class tech.nicesky.wedgesview.WedgesView
  * @date on 2018/9/18-1:12
  * @author fairytale110
- * @email  fairytale110@foxmail.com
+ * @email fairytale110@foxmail.com
  * @description:
  *
  */
@@ -44,7 +43,7 @@ public class WedgesView extends View {
     private float rotateSpeed = 0.5F;
     private float sweepAngle = 90.0F;
     private float startAngleA = 90F, startAngleB = 0F, startAngleC = -90F, startAngleD = -180F;
-    private float angle_max = 360F*100000F;
+    private float angle_max = 360F * 100000F;
 
     public WedgesView(Context context) {
         super(context);
@@ -101,10 +100,10 @@ public class WedgesView extends View {
         if (attrs != null) {
             TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.WedgesView);
 
-            int backgroundColor     = attributes.getColor(R.styleable.WedgesView_wv_background, Color.parseColor("#FFFFFF"));
-            wedgeDiameter           = (int) attributes.getDimension(R.styleable.WedgesView_wv_wedge_diameter, context.getResources().getDimension(R.dimen.dp_200));
-            rotateSpeed             = attributes.getFloat(R.styleable.WedgesView_wv_rotate_speed, 0.5F);
-            float wedgeAlpha        = attributes.getFloat(R.styleable.WedgesView_wv_wedge_alpha, 0.8F);
+            int backgroundColor = attributes.getColor(R.styleable.WedgesView_wv_background, Color.parseColor("#FFFFFF"));
+            wedgeDiameter = (int) attributes.getDimension(R.styleable.WedgesView_wv_wedge_diameter, context.getResources().getDimension(R.dimen.dp_200));
+            rotateSpeed = attributes.getFloat(R.styleable.WedgesView_wv_rotate_speed, 0.5F);
+            float wedgeAlpha = attributes.getFloat(R.styleable.WedgesView_wv_wedge_alpha, 0.8F);
 
             setBackgroundColor(backgroundColor);
             setWedgeAlpha(wedgeAlpha);
@@ -123,12 +122,12 @@ public class WedgesView extends View {
      * Set wedges's color
      * @param colors  int array, and its length must be 4
      */
-    public void setColors(int...colors) {
-        if (colors == null){
-            throw  new IllegalArgumentException("colors cant not be null");
+    public void setColors(int... colors) {
+        if (colors == null) {
+            throw new IllegalArgumentException("colors cant not be null");
         }
-        if (colors.length < 4){
-            throw  new IllegalArgumentException("colors's length must be 4");
+        if (colors.length < 4) {
+            throw new IllegalArgumentException("colors's length must be 4");
         }
         this.colorA = colors[0];
         this.colorB = colors[1];
@@ -155,19 +154,19 @@ public class WedgesView extends View {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
-        int width  = getMySize(diameterDefault, widthMeasureSpec);
+        int width = getMySize(diameterDefault, widthMeasureSpec);
         int height = getMySize(diameterDefault, heightMeasureSpec);
 
-        if (width  < height) {
+        if (width < height) {
             height = width;
         } else {
-            width  = height;
+            width = height;
         }
         if (wedgeDiameter > width) {
             wedgeDiameter = width;
         }
         if (diameterDefault > width) {
-            wedgeDiameter   = width;
+            wedgeDiameter = width;
         }
         rectF.set(0, 0, wedgeDiameter, wedgeDiameter);
         setMeasuredDimension(width, height);
@@ -177,10 +176,10 @@ public class WedgesView extends View {
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
 
-        mPaddingStart   = getPaddingStart();
-        mPaddingEnd     = getPaddingEnd();
-        mPaddingTop     = getPaddingTop();
-        mPaddingBottom  = getPaddingBottom();
+        mPaddingStart = getPaddingStart();
+        mPaddingEnd = getPaddingEnd();
+        mPaddingTop = getPaddingTop();
+        mPaddingBottom = getPaddingBottom();
 
         rectF.set(mPaddingStart, mPaddingTop, wedgeDiameter - mPaddingEnd, wedgeDiameter - mPaddingBottom);
     }
@@ -214,17 +213,19 @@ public class WedgesView extends View {
         animator = ValueAnimator.ofInt(0);
         animator.setRepeatMode(ValueAnimator.REVERSE);
         animator.setRepeatCount(ValueAnimator.INFINITE);
-        animator.addUpdateListener(animation -> {
-
-            //Prevent infinity
-            if (startAngleD > angle_max || startAngleA > angle_max){
-                initStartAngle();
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                //Prevent infinity
+                if (startAngleD > angle_max || startAngleA > angle_max) {
+                    initStartAngle();
+                }
+                startAngleD = startAngleD + rotateSpeed * 10F;
+                startAngleC = startAngleC + rotateSpeed * 8F;
+                startAngleB = startAngleB + rotateSpeed * 6F;
+                startAngleA = startAngleA + rotateSpeed * 4F;
+                postInvalidate();
             }
-            startAngleD = startAngleD + rotateSpeed * 10F;
-            startAngleC = startAngleC + rotateSpeed * 8F;
-            startAngleB = startAngleB + rotateSpeed * 6F;
-            startAngleA = startAngleA + rotateSpeed * 4F;
-            postInvalidate();
         });
         ValueAnimatorUtil.resetDurationScale();
         reStart();
@@ -278,11 +279,11 @@ public class WedgesView extends View {
     }
 
     public void setWedgeAlpha(float wedgeAlpha) {
-        if (wedgeAlpha < 0.1F ){
+        if (wedgeAlpha < 0.1F) {
             wedgeAlpha = 0.1F;
         }
 
-        if (wedgeAlpha > 1.0F ){
+        if (wedgeAlpha > 1.0F) {
             wedgeAlpha = 1.0F;
         }
         this.paintAlpha = (int) (255F * wedgeAlpha);
@@ -304,7 +305,7 @@ public class WedgesView extends View {
     /**
      * Stop the animation
      */
-    public void stop(){
+    public void stop() {
         initStartAngle();
         if (animator == null) return;
         if (animator.isRunning()) {
