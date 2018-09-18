@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="WedgesView">
+        <!--WedgesView's backgroundColor-->
+        <attr name="wv_background" format="reference|color" />
+        <!--wedge's color-->
+        <attr name="wv_wedge_color_first" format="reference|color" />
+        <attr name="wv_wedge_color_second" format="reference|color" />
+        <attr name="wv_wedge_color_third" format="reference|color" />
+        <attr name="wv_wedge_color_fourth" format="reference|color" />
+        <!--wedge's diameter-->
+        <attr name="wv_wedge_diameter" format="reference|dimension" />
+        <!--wedge's alpha-->
+        <attr name="wv_wedge_alpha" format="reference|float" />
+        <!--The rotational speed of the first wedge -->
+        <attr name="wv_rotate_speed" format="reference|float" />
+    </declare-styleable>
+</resources>

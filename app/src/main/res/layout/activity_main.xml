@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal|top"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".MainActivity">
+
+    <tech.nicesky.libwedgesview.WedgesView
+        android:id="@+id/wedgesView"
+        android:layout_width="222dp"
+        android:layout_height="222dp"
+        app:wv_background="@android:color/white"
+        app:wv_rotate_speed="0.5"
+        app:wv_wedge_alpha="0.8"
+        app:wv_wedge_diameter="@dimen/dp_222"
+        android:padding="@dimen/dp_20"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_height="100dp">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:text="Speed\nof\nrotation"
+            android:textSize="15sp"
+            android:textColor="@android:color/holo_orange_dark" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/txtProgress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.5F"
+                android:textSize="20sp"
+                android:textColor="@android:color/holo_orange_dark" />
+
+            <android.support.v7.widget.AppCompatSeekBar
+                android:id="@+id/seekBar"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:max="10"
+                android:progress="5" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
