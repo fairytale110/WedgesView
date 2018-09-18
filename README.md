@@ -8,6 +8,7 @@
 
 ### Preview
 
+![preview](https://raw.githubusercontent.com/fairytale110/WedgesView/master/art/Screenrecord-2018-09-18-12-57-07-008.gif "optional title")
 
 
 ### Features
