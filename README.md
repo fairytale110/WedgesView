@@ -71,7 +71,7 @@ Step 2. Add the dependency
 or
 ```java
 
-  int[] colors = new int[4];
+        int[] colors = new int[4];
         colors[0] = Color.parseColor("#C2DFD7");
         colors[1] = Color.parseColor("#FFE6F5");
         colors[2] = Color.parseColor("#FE718D");
