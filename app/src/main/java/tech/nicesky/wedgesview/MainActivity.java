@@ -1,5 +1,6 @@
 package tech.nicesky.wedgesview;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatSeekBar;
@@ -37,5 +38,22 @@ public class MainActivity extends AppCompatActivity {
                 wedgesView.setRotateSpeed( seekBar.getProgress() / 10F);
             }
         });
+    }
+
+    public void test(){
+        int[] colors = new int[4];
+        colors[0] = Color.parseColor("#C2DFD7");
+        colors[1] = Color.parseColor("#FFE6F5");
+        colors[2] = Color.parseColor("#FE718D");
+        colors[3] = Color.parseColor("#E90C59");
+        WedgesView wedgesView = new WedgesView(this);
+        wedgesView.setBackgroundColor(Color.WHITE);//Set View's background color
+        wedgesView.setColors(colors);//set wedges's color
+        wedgesView.setRotateSpeed(0.5F);//set wedges's fastest speed
+        wedgesView.setWedgeAlpha(0.8F);//set wedges's alpha
+        //set wedges diameter
+        wedgesView.setWedgeDiameter((int) getResources().getDimension(R.dimen.dp_200));
+        wedgesView.reStart();//begin anim
+        //wedgesView.stop();// stop anim
     }
 }
