@@ -4,7 +4,7 @@ A WedgesView based on android.View, nicely rotation、easy to use.
 # LICENSE
 
 ```java
-Copyright 2018 fairytale110
+  Copyright 2018 fairytale110
 
 
   Licensed under the Apache License, Version 2.0 (the "License");
