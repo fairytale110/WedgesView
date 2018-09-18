@@ -7,7 +7,7 @@
 [![Download](https://img.shields.io/badge/Download-1.0.1-B93B8F.svg) ](https://github.com/fairytale110/WedgesView/archive/1.0.1.zip)
 
 ### Preview
-
+The actual running effect will be better
 ![preview](https://raw.githubusercontent.com/fairytale110/WedgesView/master/art/Screenrecord-2018-09-18-12-57-07-008.gif "optional title")
 
 
