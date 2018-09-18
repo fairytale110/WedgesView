@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/WedgesView_Android.iml" filepath="$PROJECT_DIR$/WedgesView_Android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WedgesView_github.iml" filepath="$PROJECT_DIR$/WedgesView_github.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/libwedgesview/libwedgesview.iml" filepath="$PROJECT_DIR$/libwedgesview/libwedgesview.iml" />
     </modules>
